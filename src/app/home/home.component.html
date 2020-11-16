@@ -1,0 +1,50 @@
+<div>
+    <span>Filter By: </span>
+    <input type="text" [(ngModel)]='listFilter' />
+            
+    <label for="company"> Company:</label>
+    <select #t name="company" id="company" (change)="onChange(t.value)">
+        <option id="0" value="">All</option>
+        <option *ngFor="let company of companies"
+                [id]="company.id" 
+                [value]="company.name">
+
+            {{company.name}}
+        </option>
+    </select>
+</div>
+
+<br />
+
+<div>
+    <button type="button" style="float: right;">Add User</button>
+</div>
+
+<br />
+<br />
+<div>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Zip</th>
+            <th>Company</th>
+            <th>Actions</th>
+        </tr>
+
+        <tr *ngFor="let user of filteredUsers">
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.phone}}</td>
+            <td>{{user.address}}</td>
+            <td>{{user.zip}}</td>
+            <td>{{user.company}}</td>
+            <td>
+                <button>Edit</button>
+                <button>Delete</button>
+            </td>
+        </tr>
+    </table>
+</div>
