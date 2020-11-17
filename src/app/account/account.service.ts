@@ -11,4 +11,8 @@ export class AccountService {
   login(): any {
     return this.router.navigate(['/', 'home']);
   }
+
+  register(): any {
+    return this.router.navigate(['/', 'login']);
+  }
 }
