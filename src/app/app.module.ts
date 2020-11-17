@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
 import { AppService } from './shared/app.service';
+import { AccountModule } from './account/account.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +13,9 @@ import { AppService } from './shared/app.service';
   ],
   imports: [
     BrowserModule,
-    HomeModule
+    HomeModule,
+    AccountModule,
+    AppRoutingModule
   ],
   exports: [],
   providers: [AppService],
