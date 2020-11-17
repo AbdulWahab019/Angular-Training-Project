@@ -5,14 +5,24 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccountRoutingModule } from './account-routing.module';
 import { RegisterComponent } from './register.component';
 import { AccountService } from './account.service';
+import { HttpClientModule } from '@angular/common/http';
+import { server } from '../server';
+
+server();
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent],
-  exports: [LoginComponent],
+  declarations: [
+    LoginComponent,
+    RegisterComponent
+  ],
+  exports: [
+    LoginComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     AccountRoutingModule
   ],
   providers: [AccountService]

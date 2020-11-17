@@ -1,8 +1,8 @@
-<div>
+<div style="margin: 15px;">
     <span>Filter By: </span>
     <input type="text" [(ngModel)]='listFilter' />
             
-    <label for="company"> Company:</label>
+    <label for="company" style="margin-left: 15px;"> Company:</label>
     <select #t name="company" id="company" (change)="onChange(t.value)">
         <option id="0" value="">All</option>
         <option *ngFor="let company of companies"
@@ -12,17 +12,23 @@
             {{company.name}}
         </option>
     </select>
+
+    <a class="btn btn-danger" 
+        style="float: right;margin-right: 15px;"
+        routerLink="../login">Logout</a>
 </div>
 
 <br />
+<br />
 
-<div>
-    <button type="button" style="float: right;margin: 15px;">Add User</button>
+<div class="container">
+    <button class="btn btn-success" style="float: right;margin: 15px;">Add User</button>
 </div>
 
 <br />
 <br />
-<div>
+
+<div class="container">
     <table>
         <tr>
             <th>ID</th>
@@ -42,8 +48,8 @@
             <td>{{user.zip}}</td>
             <td>{{user.company}}</td>
             <td>
-                <button>Edit</button>
-                <button>Delete</button>
+                <button class="btn btn-link">Edit</button>
+                <button class="btn btn-danger">Delete</button>
             </td>
         </tr>
     </table>
