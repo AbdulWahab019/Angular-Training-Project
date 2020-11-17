@@ -16,6 +16,7 @@ export class AccountService {
     this.isLoggedIn = true;
     this.http.get('api/login').subscribe((data: {token: string}) => {
       this.token = data.token;
+      localStorage.setItem('token', this.token);
     });
     return this.router.navigate(['/', 'home']);
   }

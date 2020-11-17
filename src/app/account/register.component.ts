@@ -20,9 +20,17 @@ export class RegisterComponent implements OnInit {
 
     this.form = this.formBuilder.group({
       name: ['', Validators.required],
-      email:  ['', Validators.required],
+      email:  ['', [
+                    Validators.required,
+                    Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)
+                  ]
+              ],
       phone: ['', Validators.required],
-      password: ['', Validators.required],
+      password: ['', [
+                      Validators.required,
+                      Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/)
+                    ]
+    ],
       address: ['', Validators.required],
       zip: ['', Validators.required],
       company: ['', Validators.required]
