@@ -55,9 +55,7 @@ export class UserModalComponent implements OnInit {
     this.dialogRef.close();
   }
 
-
   initForm(data: any): void{
-
     this.form = this.formBuilder.group({
       name: [data.name, Validators.required],
       email:  [data.email, [
@@ -70,7 +68,5 @@ export class UserModalComponent implements OnInit {
       zip: [data.zip, Validators.required],
       company: [data.company, Validators.required]
     });
-
-
   }
 }
