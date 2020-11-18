@@ -38,8 +38,6 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.form.value);
-
     this.accountService.register();
   }
 

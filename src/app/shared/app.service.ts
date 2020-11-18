@@ -13,6 +13,10 @@ const companies = [
   {
       id: 3,
       name: 'Angular'
+  },
+  {
+      id: 4,
+      name: 'Tkxel'
   }
 ];
 

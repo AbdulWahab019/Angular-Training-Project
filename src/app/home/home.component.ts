@@ -74,7 +74,7 @@ export class HomeComponent implements OnInit {
     const userLength = this.users.length;
 
     if (userLength > 0){
-      lastUserId = userLength;
+      lastUserId = this.users[userLength - 1].id;
     } else {
       lastUserId = 0;
     }

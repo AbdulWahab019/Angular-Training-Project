@@ -37,7 +37,6 @@ export class UserComponent implements OnInit {
 
   deleteUser(user: User): void {
     this.userService.deleteUser(user).subscribe((users) => {
-      console.log(users);
       this.userService.publishValue(users);
     });
   }
