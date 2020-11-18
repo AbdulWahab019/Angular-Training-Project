@@ -1,0 +1,26 @@
+<div class="container">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Zip</th>
+            <th>Company</th>
+            <th>Actions</th>
+        </tr>
+
+        <tr *ngFor="let user of users">
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.phone}}</td>
+            <td>{{user.address}}</td>
+            <td>{{user.zip}}</td>
+            <td>{{user.company}}</td>
+            <td>
+                <button class="btn btn-link" (click)="editUser(user)">Edit</button>
+                <button class="btn btn-danger" (click)="deleteUser(user)">Delete</button>
+            </td>
+        </tr>
+    </table>
+</div>

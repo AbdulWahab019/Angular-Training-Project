@@ -3,7 +3,7 @@
     <input type="text" [(ngModel)]='listFilter' />
             
     <label for="company" style="margin-left: 15px;"> Company:</label>
-    <select #t name="company" id="company" (change)="onChange(t.value)">
+    <select style="margin-left: 5px;" #t name="company" id="company" (change)="onChange(t.value)">
         <option id="0" value="">All</option>
         <option *ngFor="let company of companies"
                 [id]="company.id" 
@@ -12,45 +12,20 @@
             {{company.name}}
         </option>
     </select>
-
-    <a class="btn btn-danger" 
-        style="float: right;margin-right: 15px;"
-        routerLink="../login">Logout</a>
 </div>
 
 <br />
 <br />
 
 <div class="container">
-    <button class="btn btn-success" style="float: right;margin: 15px;">Add User</button>
+    <button class="btn btn-success" 
+            style="float: right;margin: 15px;"
+            (click)="addUser()">Add User</button>
 </div>
 
 <br />
 <br />
 
-<div class="container">
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Address</th>
-            <th>Zip</th>
-            <th>Company</th>
-            <th>Actions</th>
-        </tr>
+<app-user [users]=filteredUsers></app-user>
 
-        <tr *ngFor="let user of filteredUsers">
-            <td>{{user.id}}</td>
-            <td>{{user.name}}</td>
-            <td>{{user.phone}}</td>
-            <td>{{user.address}}</td>
-            <td>{{user.zip}}</td>
-            <td>{{user.company}}</td>
-            <td>
-                <button class="btn btn-link">Edit</button>
-                <button class="btn btn-danger">Delete</button>
-            </td>
-        </tr>
-    </table>
-</div>
+<mat-spinner *ngIf="isLoading" style="margin:0 auto;" mode="indeterminate"></mat-spinner>

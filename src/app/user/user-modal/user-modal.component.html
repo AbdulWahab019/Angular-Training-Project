@@ -1,0 +1,85 @@
+<div class="modal-content-header">
+    <header id="modal-header">
+        <h1 id="modal-title">{{pageTitle}}</h1>
+    </header>
+
+    <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" formControlName="name" class="form-control" />
+            </div>
+            <div *ngIf="form.controls['name'].invalid && (form.controls['name'].dirty || form.controls['name'].touched)" class="alert alert-danger">
+                <div *ngIf="form.controls['name'].errors.required">
+                    Name is required
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" formControlName="email" class="form-control"/>
+            </div>
+            <div *ngIf="form.controls['email'].invalid && (form.controls['email'].dirty || form.controls['email'].touched)" class="alert alert-danger">
+                <div *ngIf="form.controls['email'].invalid">
+                    Please provide a valid email
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="number" formControlName="phone" class="form-control"  />
+            </div>
+            <div *ngIf="form.controls['phone'].invalid && (form.controls['phone'].dirty || form.controls['phone'].touched)" class="alert alert-danger">
+                <div *ngIf="form.controls['phone'].errors.required">
+                    Phone is required
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" formControlName="address" class="form-control"/>
+            </div>
+            <div *ngIf="form.controls['address'].invalid && (form.controls['address'].dirty || form.controls['address'].touched)" class="alert alert-danger">
+                <div *ngIf="form.controls['address'].errors.required">
+                    Address is required
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="zip">Zip Code</label>
+                <input type="number" formControlName="zip" class="form-control" />
+            </div>
+            <div *ngIf="form.controls['zip'].invalid && (form.controls['zip'].dirty || form.controls['zip'].touched)" class="alert alert-danger">
+                <div *ngIf="form.controls['zip'].errors.required">
+                    Zip Code is required
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="company">Company</label>
+                <select #t formControlName="company" class="form-control" name="company" id="company">
+                    <option *ngFor="let company of companies"
+                            [id]="company.id" 
+                            [value]="company.name">
+            
+                        {{company.name}}
+                    </option>
+                </select>
+            </div>
+            <div *ngIf="form.controls['company'].invalid && (form.controls['company'].dirty || form.controls['company'].touched)" class="alert alert-danger">
+                <div *ngIf="form.controls['company'].errors.required">
+                    Please select a company
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-primary"
+                        [disabled]="form.pristine || form.invalid">
+                    {{pageTitle}}
+                </button>
+            </div>
+        </form>
+        <button class="btn btn-link" (click)="closeModal()">Cancel</button>
+    </div>
+</div>
