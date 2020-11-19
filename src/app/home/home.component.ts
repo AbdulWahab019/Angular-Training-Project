@@ -24,11 +24,11 @@ export class HomeComponent implements OnInit {
               public matDialog: MatDialog) { }
 
   companies;
+  selectedCompany = '';
   users;
   filteredUsers;
   selectedUsers;
   isLoading = true;
-
   // tslint:disable-next-line: variable-name
   _listFilter: string;
 
@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit {
 
     this.userService.userDataSubject.subscribe(data => {
         this.users = data;
-        this.onChange('');
+        this.onChange(this.selectedCompany);
     });
   }
 
@@ -63,10 +63,16 @@ export class HomeComponent implements OnInit {
   }
 
   onChange(value: string): void {
+    this.selectedCompany = value;
     this.selectedUsers = this.users;
-    this.selectedUsers = this.performFilter(value);
-    this.filteredUsers = this.selectedUsers;
-    this.filteredUsers = this.performFilter(this.listFilter);
+    if (this.selectedCompany === ''){
+      this.filteredUsers = this.selectedUsers;
+    }
+    else{
+      this.selectedUsers = this.performFilter(value);
+      this.filteredUsers = this.selectedUsers;
+      this.filteredUsers = this.performFilter(this.listFilter);
+    }
   }
 
   addUser(): void {
@@ -92,7 +98,7 @@ export class HomeComponent implements OnInit {
 
     modalDialog.componentInstance.updatedUsers.subscribe((emittedValue) => {
       this.users = emittedValue;
-      this.onChange('');
+      this.onChange(this.selectedCompany);
     });
   }
 }

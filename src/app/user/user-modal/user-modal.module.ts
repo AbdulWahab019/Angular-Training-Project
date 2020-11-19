@@ -6,10 +6,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { UserModalComponent } from './user-modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ValidationModule } from 'src/app/validation/validation.module';
 
 @NgModule({
   declarations: [
-    UserModalComponent
+    UserModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -17,9 +18,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    ValidationModule
   ],
   exports: [UserModalComponent],
-  entryComponents: [UserModalComponent]
 })
 export class UserModalModule { }

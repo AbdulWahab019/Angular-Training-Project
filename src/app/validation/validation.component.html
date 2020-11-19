@@ -1,0 +1,17 @@
+<div *ngIf="form.controls[componentName].invalid && form.controls[componentName].touched" 
+            class="alert alert-danger">
+
+    <span *ngIf="message !== 'password'; else passwordMessage">
+        {{message}}
+    </span>
+</div>
+
+<ng-template #passwordMessage>
+    Please provide a valid password in the following format:
+                <ul>
+                    <li>Minimum 8 characters</li>
+                    <li>Should be alphanumeric</li>
+                    <li>Atleast one number</li>
+                    <li>Atleast one special character</li>
+                </ul>
+</ng-template>

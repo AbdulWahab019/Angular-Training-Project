@@ -26,7 +26,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     AccountModule,
     BrowserAnimationsModule
   ],
-  exports: [],
+  exports: [
+
+  ],
   providers: [
     AppService,
     ErrorDialogService,

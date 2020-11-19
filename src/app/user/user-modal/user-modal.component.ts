@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import { AppService } from 'src/app/shared/app.service';
 import { User } from '../user';
 import { UserService } from '../user.service';

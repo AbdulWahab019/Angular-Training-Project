@@ -7,67 +7,37 @@
                 <label for="name">Name</label>
                 <input type="text" formControlName="name" class="form-control" />
             </div>
-            <div *ngIf="form.controls['name'].invalid && (form.controls['name'].dirty || form.controls['name'].touched)" class="alert alert-danger">
-                <div *ngIf="form.controls['name'].errors.required">
-                    Name is required
-                </div>
-            </div>
+            <app-validation [form]='form' [componentName]="'name'" [message]="'Name is required'"></app-validation>
 
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="text" formControlName="email" class="form-control" />
             </div>
-            <div *ngIf="form.controls['email'].invalid && (form.controls['email'].dirty || form.controls['email'].touched)" class="alert alert-danger">
-                <div *ngIf="form.controls['email'].invalid">
-                    Please provide a valid email
-                </div>
-            </div>
+            <app-validation [form]='form' [componentName]="'email'" [message]="'Please provide a valid email'"></app-validation>
 
             <div class="form-group">
                 <label for="phone">Phone</label>
                 <input type="number" formControlName="phone" class="form-control" />
             </div>
-            <div *ngIf="form.controls['phone'].invalid && (form.controls['phone'].dirty || form.controls['phone'].touched)" class="alert alert-danger">
-                <div *ngIf="form.controls['phone'].errors.required">
-                    Phone is required
-                </div>
-            </div>
+            <app-validation [form]='form' [componentName]="'phone'" [message]="'Phone is required'"></app-validation>
 
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" formControlName="password" class="form-control" />
             </div>
-            <div *ngIf="form.controls['password'].invalid && (form.controls['password'].dirty || form.controls['password'].touched)" class="alert alert-danger">
-                <div *ngIf="form.controls['password'].invalid">
-                    Please provide a valid password in the following format:
-                    <ul>
-                        <li>Minimum 8 characters</li>
-                        <li>Should be alphanumeric</li>
-                        <li>Atleast one number</li>
-                        <li>Atleast one special character</li>
-                    </ul>
-                </div>
-            </div>
+            <app-validation [form]='form' [componentName]="'password'" [message]="'password'"></app-validation>
 
             <div class="form-group">
                 <label for="address">Address</label>
                 <input type="text" formControlName="address" class="form-control" />
             </div>
-            <div *ngIf="form.controls['address'].invalid && (form.controls['address'].dirty || form.controls['address'].touched)" class="alert alert-danger">
-                <div *ngIf="form.controls['address'].errors.required">
-                    Address is required
-                </div>
-            </div>
+            <app-validation [form]='form' [componentName]="'address'" [message]="'Address is required'"></app-validation>
 
             <div class="form-group">
                 <label for="zip">Zip Code</label>
                 <input type="number" formControlName="zip" class="form-control" />
             </div>
-            <div *ngIf="form.controls['zip'].invalid && (form.controls['zip'].dirty || form.controls['zip'].touched)" class="alert alert-danger">
-                <div *ngIf="form.controls['zip'].errors.required">
-                    Zip Code is required
-                </div>
-            </div>
+            <app-validation [form]='form' [componentName]="'zip'" [message]="'Zip Code is required'"></app-validation>
 
             <div class="form-group">
                 <label for="company">Company</label>
@@ -80,11 +50,7 @@
                     </option>
                 </select>
             </div>
-            <div *ngIf="form.controls['company'].invalid && (form.controls['company'].dirty || form.controls['company'].touched)" class="alert alert-danger">
-                <div *ngIf="form.controls['company'].errors.required">
-                    Please select a company
-                </div>
-            </div>
+            <app-validation [form]='form' [componentName]="'company'" [message]="'Please select a company'"></app-validation>
 
             <div class="form-group">
                 <button class="btn btn-primary"

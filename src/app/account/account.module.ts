@@ -7,6 +7,7 @@ import { RegisterComponent } from './register.component';
 import { AccountService } from './account.service';
 import { HttpClientModule } from '@angular/common/http';
 import { server } from '../server';
+import { ValidationModule } from '../validation/validation.module';
 
 server();
 
@@ -21,6 +22,7 @@ server();
   imports: [
     CommonModule,
     FormsModule,
+    ValidationModule,
     ReactiveFormsModule,
     HttpClientModule,
     AccountRoutingModule

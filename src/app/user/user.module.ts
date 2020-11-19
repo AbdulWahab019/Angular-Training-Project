@@ -4,14 +4,16 @@ import { UserComponent } from './user.component';
 import { UserModalModule } from './user-modal/user-modal.module';
 
 @NgModule({
-  declarations: [UserComponent],
+  declarations: [
+    UserComponent
+  ],
   imports: [
     CommonModule,
-    UserModalModule
+    UserModalModule,
   ],
   exports: [
     UserComponent,
-    UserModalModule
+    UserModalModule,
   ]
 })
 export class UserModule { }
