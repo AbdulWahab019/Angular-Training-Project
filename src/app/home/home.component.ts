@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import Swal from 'sweetalert2';
 import { AppService } from '../shared/app.service';
 import { User } from '../user/user';
 import { UserModalComponent } from '../user/user-modal/user-modal.component';
@@ -36,13 +37,11 @@ export class HomeComponent implements OnInit {
     this.companies = this.appService.getCompanies();
 
     this.userService.getUsers().subscribe(data => {
-      setTimeout(() => {
         this.users = data;
         this.filteredUsers = this.users;
         this.selectedUsers = this.users;
         this.listFilter = '';
         this.isLoading = false;
-      }, 2000);
     });
 
     this.userService.userDataSubject.subscribe(data => {
@@ -99,6 +98,14 @@ export class HomeComponent implements OnInit {
     modalDialog.componentInstance.updatedUsers.subscribe((emittedValue) => {
       this.users = emittedValue;
       this.onChange(this.selectedCompany);
+
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'User Added',
+        showConfirmButton: false,
+        timer: 1500
+      });
     });
   }
 }
