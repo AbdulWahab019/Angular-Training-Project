@@ -6,6 +6,7 @@ import { ErrordialogComponent } from './errordialog.component';
 export class ErrorDialogService {
     public isDialogOpen = false;
     constructor(public dialog: MatDialog) { }
+
     openDialog(data): any {
         if (this.isDialogOpen) {
             return false;
